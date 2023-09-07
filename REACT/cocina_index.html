@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+
+    <script
+      src="https://unpkg.com/react@17/umd/react.development.js"
+      crossorigin
+    ></script>
+    
+    <script
+      src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+      crossorigin
+    ></script>
+
+  </script>
+
+  <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+    
+    <title>Bienvenidos a React ⚛️</title>
+  </head>
+
+  <body>
+
+    <div id="root">
+
+    </div>
+
+    <script type="text/babel">
+      
+      function Header(props){
+        return(
+          <header>
+              <h1>Hola Bienvenidos a la Cocina del {props.rol} {props.name} </h1>
+          </header>
+        );
+      }
+      function Main(props){
+
+        return (
+            <section>
+                <p>Servimos la más {props.adjetivo} comida</p>
+
+                <img src="./chiles.jpg" alt="Servimos los mejores chile en nogada"  height={200} />
+
+                <ul>
+                    {props.platos.map((plato) => (
+                        <li>{plato}</li>)
+                    )}
+
+                </ul>
+
+                <img src="./tacos.jpg" alt="Servimos los mejores chile en nogada"  height={200} />
+                
+            </section>
+        );
+      }
+
+      function Footter(props){
+          return(
+            <footter>
+              <p>Derechos reservados {props.year} </p>  
+            </footter>
+          )
+      }
+    
+      const platos= [ "Sopa de Fideos", "Pizza", "Salmon", "Chiles en Nogada", "Tacos al pastor", "Mole poblano"];
+
+      function App(){
+
+        return(
+          <div>
+              <Header  rol="Capi" name="Omar" />
+              <Main 
+                adjetivo="Espectacular!!!" 
+                platos = {platos}
+                />
+              <Footter year= { new Date().getFullYear()}  />
+            </div>
+
+        );
+      }
+     
+      ReactDOM.render(
+          <App />,
+          document.getElementById("root")
+      )
+          
+
+    </script>
+  
+  </body>
+
+
+  </html>
