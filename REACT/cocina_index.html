@@ -45,7 +45,7 @@
 
                 <ul>
                     {props.platos.map((plato) => (
-                        <li>{plato}</li>)
+                        <li key={plato.id}>{plato.title}</li>)
                     )}
 
                 </ul>
@@ -66,6 +66,13 @@
     
       const platos= [ "Sopa de Fideos", "Pizza", "Salmon", "Chiles en Nogada", "Tacos al pastor", "Mole poblano"];
 
+      const platosObj = platos.map(
+            (plato, i) => ({
+                id: i,
+                title: plato
+            })
+      );
+
       function App(){
 
         return(
@@ -73,7 +80,7 @@
               <Header  rol="Capi" name="Omar" />
               <Main 
                 adjetivo="Espectacular!!!" 
-                platos = {platos}
+                platos = {platosObj}
                 />
               <Footter year= { new Date().getFullYear()}  />
             </div>
